@@ -14,7 +14,7 @@ async function buscar() {
   
     try {
       // Petición al backend (POST)
-      const res = await fetch('https://jobsearchbackend-az5z.onrender.com/buscar', {
+      const res = await fetch('https://jobsearchbackend-pg19.onrender.com/buscar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ trabajo, lugar })
