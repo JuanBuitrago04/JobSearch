@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buscador de Profesionales</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef8ff',
+              100: '#d9efff',
+              200: '#bce2ff',
+              300: '#8aceff',
+              400: '#4fb3ff',
+              500: '#2696ff',
+              600: '#1178f5',
+              700: '#0b64e3',
+              800: '#1251b8',
+              900: '#164491',
+            },
+            accent: {
+              100: '#fef5e7',
+              200: '#fde7c2',
+              300: '#fcd285',
+              400: '#fbbd48',
+              500: '#f9a71b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4">
+
+  <!-- Contenedor principal: w-full para todo el ancho, sin max-w -->
+  <div class="bg-white p-6 rounded-xl shadow-xl w-full text-center border border-indigo-100">
+    <!-- Encabezado degradado -->
+    <div class="bg-gradient-to-r from-primary-600 to-primary-800 text-white p-6 -mt-6 -mx-6 rounded-t-xl mb-6">
+      <h1 class="text-3xl font-bold mb-2">Buscador de Profesionales</h1>
+      <p class="text-primary-100 text-base">Ingresa la profesión y la ciudad para obtener datos reales.</p>
+    </div>
+
+    <!-- Inputs en un grid de 2 columnas en pantallas medianas -->
+    <div class="grid md:grid-cols-2 gap-4 mb-6 px-2">
+      <!-- Trabajo -->
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-primary-600">
+          <!-- Ícono -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745
+                     M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01
+                     M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </span>
+        <input
+          id="trabajo"
+          type="text"
+          placeholder="Ejemplo: Médico"
+          class="w-full pl-12 p-3 rounded-lg border border-primary-200 
+                 bg-primary-50/50 text-gray-700 placeholder-gray-500 
+                 focus:outline-none focus:ring-2 focus:ring-primary-500 
+                 focus:border-transparent transition-all text-lg"
+        />
+      </div>
+
+      <!-- Lugar -->
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-primary-600">
+          <!-- Ícono -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243
+                     a8 8 0 1111.314 0z 
+                     M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </span>
+        <input
+          id="lugar"
+          type="text"
+          placeholder="Ejemplo: Villavicencio"
+          class="w-full pl-12 p-3 rounded-lg border border-primary-200 
+                 bg-primary-50/50 text-gray-700 placeholder-gray-500 
+                 focus:outline-none focus:ring-2 focus:ring-primary-500 
+                 focus:border-transparent transition-all text-lg"
+        />
+      </div>
+    </div>
+
+    <!-- Botón -->
+    <button
+      onclick="buscar()"
+      class="mt-4 w-full bg-gradient-to-r from-primary-600 to-primary-700 
+             hover:from-primary-700 hover:to-primary-800 
+             text-white py-3 rounded-lg text-xl font-semibold shadow-lg 
+             transition-all duration-300 flex items-center justify-center"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" 
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      Buscar
+    </button>
+
+    <!-- Resultados -->
+    <div id="resultados" class="mt-8"></div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>
